@@ -1,0 +1,31 @@
+Program to create a line graph with the specified style properties, given the information regarding the car details.
+Sarah bought a new car in 2001 for $24,000. The dollar value of her car changed each year as shown  in the table below.
+
+Value of Sarah's Car
+Year	Value
+2001	$24,000
+2002	$22,500
+2003	$19,700
+2004	$17,500
+2005	$14,500
+2006	$10,000
+2007	$ 5,800
+Represent the following information using a line graph with following style properties
+•	X- axis - Year
+Y –axis - Car Value
+•	title –Value Depreciation (left Aligned)
+•	Line Style dashdot and Line-color should be red
+•	point using * symbol with green color and size 20
+Subplot() provides multiple plots in one figure.
+
+code:
+print("Anish Anjali -21mca006")
+import matplotlib.pyplot as plt 
+import numpy as np
+x = np.array([2001,2002,2003,2004,2005,2006,2007])
+y = np.array([24000,22500,19700,17500,14500,10000,5800])
+plt.plot(x,y) 
+plt.xlabel('Year') 
+plt.ylabel('Car Value')
+plt.title('Value Depreciation',loc='left') plt.plot(x,y,linestyle='.',color='red',linewidth='2',marker='*',markerfaceco lor='green',markersize'20') 
+plt.show()
