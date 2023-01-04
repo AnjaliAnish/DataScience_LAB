@@ -1,0 +1,26 @@
+17.	Write a program to implement K –Means Clustering Algorithm with k=6. Create a scatter plot to visualize the same.
+Given dataset contains 200 records and five columns, two of which describe the customer’s annual income and spending score. The latter is a value from 0 to 100. The higher the number, the more this customer has spent with the company in the past:
+
+Using k means clustering create 6 clusters of customers based on their spending pattern.Visualize the same in a scatter plot with each cluster in a different color scheme.
+
+Code
+
+print("Anish Anjali -21mca006")
+import pandas as pd
+from matplotlib import pyplot as plt from sklearn.cluster import KMeans
+
+customers = pd.read_csv('customer_data.csv') 
+customers.head()
+points = customers.iloc[:, 3:5].values 
+x = points[:, 0]
+y = points[:, 1]
+plt.scatter(x, y, s=50, alpha=0.7) 
+plt.xlabel('Annual Income (k$)') 
+plt.ylabel('Spending Score') 
+plt.show()
+kmeans = KMeans(n_clusters=6, random_state=0) 
+kmeans.fit(points)
+predicted_cluster_indexes = kmeans.predict(points) 
+plt.scatter(x, y, c=predicted_cluster_indexes, s=50, alpha=0.7, cmap='viridis')
+centers = kmeans.cluster_centers_ plt.scatter(centers[:, 0], centers[:, 1], c='red', s=100) 
+plt.show()
